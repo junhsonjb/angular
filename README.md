@@ -14,6 +14,4 @@ Look at all this **stuff** I'm doing
 
 
 -like this
-	1.like this, too
 -and this
-	1.yahhhh
