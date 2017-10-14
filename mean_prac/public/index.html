@@ -15,11 +15,12 @@
 <script type="text/javascript">
   var app = angular.module('app', []);
 
-  app.controller("appCtrl", function($scope) {
-    $scope.tweets = [
-      "I like candy",
-      "Actually not that much"
-    ];
+  app.controller("appCtrl", function($scope, $http) {
+
+    $http.get('/twirts').then(function(response) {
+      $scope.twirts = response.data;
+    });
+
   });
 
 </script>
@@ -34,7 +35,7 @@
       <input type="password" placeholder="Password" />
     </div>
 
-    <div class="col-md-8" ng-repeat="item in tweets">
+    <div class="col-md-8" ng-repeat="item in twirts">
       <h4>
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         {{ item }}
