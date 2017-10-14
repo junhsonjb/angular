@@ -6,12 +6,11 @@
     //as a convention, try to always make your 'this' variable
     //the same name as the alias in the ng-controller directive
     var formCtrl = this;
-
     formCtrl.entries = [
       "hey",
-      "now"
+      "now",
+      "Me and my GOD taking over"
     ];
-
     //This function should "post" the entry that the user writes
     formCtrl.addEntry = function() {
 
@@ -21,8 +20,12 @@
 
     };
 
-
   });
+
+  //Directive for the jumbotron
+  //Not yet figured out
+
+
 
 
 }) ();
