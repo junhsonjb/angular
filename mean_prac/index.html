@@ -1,0 +1,45 @@
+<html ng-app="app">
+<head>
+  <title>My Version of Twi--Nothing....</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script type="text/javascript">
+  var app = angular.module('app', []);
+
+  app.controller("appCtrl", function($scope) {
+    $scope.tweets = [
+      "I like candy",
+      "Actually not that much"
+    ];
+  });
+
+</script>
+</head>
+<body ng-controller="appCtrl">
+  <div class="container-fluid">
+    <h1>Welcome</h1>
+
+    <div class="col-md-4">
+      <h3>Login</h3>
+      <input type="text" placeholder="Username" /> <br><br>
+      <input type="password" placeholder="Password" />
+    </div>
+
+    <div class="col-md-8" ng-repeat="item in tweets">
+      <h4>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        {{ item }}
+      </h4>
+    </div>
+  </div>
+</body>
+</html>
