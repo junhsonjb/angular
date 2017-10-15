@@ -1,6 +1,6 @@
 <html ng-app="app">
 <head>
-  <title>My Version of Twi--Nothing....</title>
+  <title>Twirty - Better Than twitter</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -12,18 +12,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<script type="text/javascript">
-  var app = angular.module('app', []);
-
-  app.controller("appCtrl", function($scope, $http) {
-
-    $http.get('/twirts').then(function(response) {
-      $scope.twirts = response.data;
-    });
-
-  });
-
-</script>
+<style type="text/css" rel="stylesheet" href="style.css"></style>
+<script type="text/javascript" src="/app.js"></script>
 </head>
 <body ng-controller="appCtrl">
   <div class="container-fluid">
@@ -35,8 +25,14 @@
       <input type="password" placeholder="Password" />
     </div>
 
-    <div class="col-md-8" ng-repeat="item in twirts">
-      <h4>
+    <div class="col-md-8">
+
+      <div class="new-twirt">
+        <input class="form-control" type="text" ng-model="newTwirt" placeholder="What's your twirt?" />
+        <button type="button" class="btn" ng-click="submitNewTwirt()">Submit</button>
+      </div>
+
+      <h4 ng-repeat="item in twirts">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         {{ item }}
       </h4>
