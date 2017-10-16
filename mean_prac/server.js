@@ -19,10 +19,20 @@ var twirts = [
 //where the older posts are at the bottom
 twirts = twirts.reverse();
 
+var possibleIntros = [
+  "We're better than Twitter",
+  "You look beautiful",
+  "I love you",
+  "It seems like Blessings keep falling in my lap",
+  "You Tried it.",
+  "Welcome"
+];
+
+app.get('/possibleIntros', function(req, res, next) {
+  res.send(possibleIntros);
+});
+
 app.get('/twirts', function(req, res, next) {
-
-
-
   res.send(twirts);
 });
 

@@ -8,8 +8,19 @@ app.controller("appCtrl", function($scope, $http) {
     });
   };
 
+
+  $http.get('/possibleIntros').then(function(response) {
+    $scope.titles = response.data;
+
+    $scope.introMessage = $scope.titles[Math.floor(Math.random() * $scope.titles.length)];
+
+  });
+
+
+
   $http.get('/twirts').then(function(response) {
     $scope.twirts = response.data;
+
   });
 
 });
