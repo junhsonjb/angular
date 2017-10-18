@@ -20,3 +20,8 @@ Look at all this **stuff** I'm doing
 	1. yahhhh
 	2. yahhhh
 	3. yup
+Okay, I didn't make any code changes so that's why I'm logging a change
+here in the README.
+
+What I did was, I correctly installed mongodb so that I can make this a Full full MEAN stack
+**We are one step to making this a complete and fully working web app**!!!!
