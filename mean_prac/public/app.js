@@ -2,6 +2,7 @@ var app = angular.module('app', []);
 
 app.controller("appCtrl", function($scope, $http) {
 
+  //post new twirt from form into list of twirts
   $scope.submitNewTwirt = function() {
     $http.post('/twirts', {newTwirt: $scope.newTwirt}).then(function() {
       console.log("Success! Thank God!");
@@ -19,6 +20,7 @@ app.controller("appCtrl", function($scope, $http) {
 
 
   $http.get('/twirts').then(function(response) {
+
     $scope.twirts = response.data;
 
   });
