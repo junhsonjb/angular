@@ -10,7 +10,7 @@ app.controller("appCtrl", function($scope, $http) {
   };
 
 
-  $http.get('/possibleIntros').then(function(response) {
+  $http.get('/intros').then(function(response) {
     $scope.titles = response.data;
 
     $scope.introMessage = $scope.titles[Math.floor(Math.random() * $scope.titles.length)];

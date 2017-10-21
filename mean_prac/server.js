@@ -30,17 +30,25 @@ app.use(express.static('public'));
 
 
 //soon to be put in the database
-var possibleIntros = [
-  "We're better than Twitter",
-  "You look beautiful",
-  "I love you",
-  "It seems like Blessings keep falling in my lap",
-  "You Tried it.",
-  "Welcome"
-];
+// var possibleIntros = [
+//   "We're better than Twitter",
+//   "You look beautiful",
+//   "I love you",
+//   "It seems like Blessings keep falling in my lap",
+//   "You Tried it.",
+//   "Welcome"
+// ];
 
-app.get('/possibleIntros', function(req, res, next) {
-  res.send(possibleIntros);
+app.get('/intros', function(req, res, next) {
+
+  db.collection('intros', function (err, introsColl) {
+
+    introsColl.find().toArray(function (err, intros) {
+      return res.json(intros);
+    })
+
+  });
+
 });
 
 //the 'fetching' route for twirts
