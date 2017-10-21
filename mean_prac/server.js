@@ -28,6 +28,8 @@ app.use(express.static('public'));
 // //where the older posts are at the bottom
 // twirts = twirts.reverse();
 
+
+//soon to be put in the database
 var possibleIntros = [
   "We're better than Twitter",
   "You look beautiful",
@@ -41,23 +43,30 @@ app.get('/possibleIntros', function(req, res, next) {
   res.send(possibleIntros);
 });
 
+//the 'fetching' route for twirts
 app.get('/twirts', function(req, res, next) {
 
+  //pcik the collection to use
   db.collection('twirts', function (err, twirtsColl) {
+    //finding all the twirts in its collection and putting it an array
     twirtsColl.find().toArray(function (err, twirts) {
       //console.log(twirts); //useful for testing
+      //returning that array
       return res.json(twirts);
     });
   });
 });
 
+//the 'sending' twirts route -- where the code for posting twirts will take place
 app.post('/twirts', function(req, res, next) {
-  //same as push but puts it in backwards
   //twirts.unshift(req.body.newTwirt);//this way the tweets look more like a timeline //no longer used
 
+  //connect to the twirts collection (twirtsColl --> 'twirts Collection')
   db.collection('twirts', function(err, twirtsColl) {
+    //the json data to add to the collection, just putting it in a variable
     var newTwirt = { text: req.body.newTwirt };
 
+    //actually putting newTwirt into the collectoin
     twirtsColl.insert(newTwirt, {w:1}, function(err) {
       return res.send();
     });
