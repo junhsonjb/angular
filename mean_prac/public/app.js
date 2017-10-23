@@ -5,6 +5,8 @@ app.controller("appCtrl", function($scope, $http) {
   //post new twirt from form into list of twirts
   $scope.submitNewTwirt = function() {
     $http.post('/twirts', {newTwirt: $scope.newTwirt}).then(function() {
+      getTwirts();
+      $scope.newTwirt = ""; //clear the input bar
       console.log("Success! Thank God!");
     });
   };
@@ -17,12 +19,16 @@ app.controller("appCtrl", function($scope, $http) {
 
   });
 
+  function getTwirts() {
 
+    $http.get('/twirts').then(function(response) {
 
-  $http.get('/twirts').then(function(response) {
+      $scope.twirts = response.data;
 
-    $scope.twirts = response.data;
+    });
 
-  });
+  }
+
+  getTwirts();
 
 });
