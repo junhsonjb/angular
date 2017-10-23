@@ -1,5 +1,6 @@
 var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectId;
 var bodyparser = require('body-parser');
 var app = express();
 
@@ -79,6 +80,18 @@ app.post('/twirts', function(req, res, next) {
       return res.send();
     });
 
+  });
+
+});
+
+app.put('/twirts/remove', function(req, res, next) {
+
+  db.collection('twirts', function(err, twirtsColl) {
+    var twirtId = req.body.newTwirt._id;
+  });
+
+  twirtsColl.remove({_id: ObjectId(twirtId)}, {w:1}, function(err) {
+    return res.send();
   });
 
 });

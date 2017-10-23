@@ -38,6 +38,7 @@
       <h4 class="feed-item" ng-repeat="item in twirts">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         {{ item.text }}
+        <a href ng-click="removeTwirt(item)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
       </h4>
     </div>
   </div>

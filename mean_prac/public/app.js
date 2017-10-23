@@ -11,6 +11,12 @@ app.controller("appCtrl", function($scope, $http) {
     });
   };
 
+  $scope.removeTwirt = function(itemToRemove) {
+    $http.put('/twirts/remove', {item/*<-- I think the issue is here*/: itemToRemove}).then(function() {
+      getTwirts();
+    });
+  };
+
 
   $http.get('/intros').then(function(response) {
     $scope.titles = response.data;
@@ -19,10 +25,13 @@ app.controller("appCtrl", function($scope, $http) {
 
   });
 
+  //function to get Twirts (hence the name)
   function getTwirts() {
 
+    //use http dependency to go to the twirts route and...
     $http.get('/twirts').then(function(response) {
 
+      //...save the server result (an array) to this variable down here
       $scope.twirts = response.data;
 
     });
