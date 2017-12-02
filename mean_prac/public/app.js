@@ -1,5 +1,12 @@
+//declare the app for which we will make controllers
 var app = angular.module('app', []);
 
+/*right now this is the only controller,
+  eventually I'll divide functionality into
+  different controllers, maybe not in this
+  project, though. But for now this is the
+  that it is.
+*/
 app.controller("appCtrl", function($scope, $http) {
 
   //post new twirt from form into list of twirts
@@ -38,6 +45,6 @@ app.controller("appCtrl", function($scope, $http) {
 
   }
 
-  getTwirts();
+  getTwirts(); //this displays the twirts without having to do anything (run any method) first
 
 });

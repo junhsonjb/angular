@@ -84,18 +84,18 @@ app.post('/twirts', function(req, res, next) {
 
 });
 
-// app.put('/twirts/remove', function(req, res, next) {
-//
-//   db.collection('twirts', function(err, twirtsColl) {
-//     var twirtId = req.body.item._id;
-//
-//     twirtsColl.remove({_id: ObjectId(twirtId)}, {w:1}, function(err, result) {
-//       return res.send();
-//     });
-//
-//   });
-//
-// });
+app.put('/twirts/remove', function(req, res, next) {
+
+  db.collection('twirts', function(err, twirtsColl) {
+    var twirtId = req.body.item._id;
+
+    twirtsColl.remove({_id: ObjectId(twirtId)}, {w:1}, function(err, result) {
+      return res.send();
+    });
+
+  });
+
+});
 
 app.listen(3000, function () {
   console.log("Hey Hi Hello!")
