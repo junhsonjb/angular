@@ -11,36 +11,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 
 <link type="text/css" rel="stylesheet" href="style.css">
 <script type="text/javascript" src="/app.js"></script>
 </head>
-<body ng-controller="appCtrl">
-  <div class="container-fluid">
-
-    <div class="col-md-2">
-      <h1>{{introMessage.text}}</h1>
-
-      <h3>Login</h3>
-      <input type="text" placeholder="Username" /> <br><br>
-      <input type="password" placeholder="Password" />
-    </div>
-
-    <div class="col-md-10 main-body">
-
-      <div class="new-twirt">
-        <input class="form-control" type="text" ng-model="newTwirt" placeholder="What's your twirt?" />
-        <button type="button" class="btn" ng-click="submitNewTwirt()">Submit</button>
-      </div>
-
-      <br />
-
-      <h4 class="feed-item" ng-repeat="item in twirts">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        {{ item.text }}
-        <a href ng-click="removeTwirt(item)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-      </h4>
-    </div>
-  </div>
-</body>
+  <div ng-view></div>
 </html>

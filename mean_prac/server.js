@@ -100,3 +100,21 @@ app.put('/twirts/remove', function(req, res, next) {
 app.listen(3000, function () {
   console.log("Hey Hi Hello!")
 });
+
+app.post('/users', function(req, res, next) {
+
+  //connect to the twirts collection (twirtsColl --> 'twirts Collection')
+  db.collection('users', function(err, usersColl) {
+
+    //this is for testing
+    // console.log(req.body);
+    // res.send();
+
+    //actually putting newTwirt into the collectoin
+    usersColl.insert(req.body, {w:1}, function(err) {
+      return res.send();
+    });
+
+  });
+
+});
